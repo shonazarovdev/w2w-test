@@ -5,7 +5,6 @@
   "importOrder": [
     "<THIRD_PARTY_MODULES>",
     "^@/(.*)$",
-    "^@pages/(.*)$",
     "^@modules/(.*)$",
     "^@components/(.*)$",
     "^@ui/(.*)$",
