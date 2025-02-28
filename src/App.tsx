@@ -1,25 +1,48 @@
-import React from "react";
+import { Layout, Menu } from "antd";
+import { FC, useState } from "react";
 
-import "./App.css";
+import { StaffTable } from "./components";
+import { StaffMember, doctors, nurses } from "./data";
 
-function App() {
+const { Header, Content } = Layout;
+
+const App: FC = () => {
+  const [currentTab, setCurrentTab] = useState("doctors");
+  const [doctorList, setDoctorList] = useState<StaffMember[]>(doctors);
+  const [nurseList, setNurseList] = useState<StaffMember[]>(nurses);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout style={{ minHeight: "100vh" }}>
+      <Header>
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          selectedKeys={[currentTab]}
+          onClick={(e) => setCurrentTab(e.key)}
+          items={[
+            { key: "doctors", label: "Врачи" },
+            { key: "nurses", label: "Медсестры" },
+          ]}
+        />
+      </Header>
+
+      <Content style={{ padding: "20px" }}>
+        {currentTab === "doctors" ? (
+          <StaffTable
+            title="Врачи"
+            staffList={doctorList}
+            onUpdate={setDoctorList}
+          />
+        ) : (
+          <StaffTable
+            title="Медсестры"
+            staffList={nurseList}
+            onUpdate={setNurseList}
+          />
+        )}
+      </Content>
+    </Layout>
   );
-}
+};
 
 export default App;
