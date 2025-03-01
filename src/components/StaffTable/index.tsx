@@ -64,7 +64,10 @@ const StaffTable: FC<StaffTableProps> = ({ title, staffList, onUpdate }) => {
             width: "300px",
             render: (_, record) => (
               <>
-                <Button onClick={() => handleEdit(record)}>
+                <Button
+                  onClick={() => handleEdit(record)}
+                  style={{ marginRight: "0.5rem" }}
+                >
                   Редактировать
                 </Button>
                 <Button danger onClick={() => handleDelete(record.id)}>
