@@ -1,4 +1,15 @@
-import { Button, Form, Input, Modal, Select, Switch, Table } from "antd";
+import {
+  Button,
+  Form,
+  Input,
+  Modal,
+  Popconfirm,
+  PopconfirmProps,
+  Select,
+  Switch,
+  Table,
+  message,
+} from "antd";
 import { FC, useState } from "react";
 
 import { StaffMember } from "../../data";
@@ -48,6 +59,15 @@ const StaffTable: FC<StaffTableProps> = ({ title, staffList, onUpdate }) => {
     setEditingMember(null);
   };
 
+  const handleDeleteConfirm = (memberId: number) => {
+    handleDelete(memberId);
+    message.success("Данные удалены успешно!");
+  };
+
+  const handleDeleteCancel = () => {
+    message.info("Удаление отменено");
+  };
+
   return (
     <>
       <h2 style={{ marginBottom: "0.5rem" }}>{title}</h2>
@@ -75,9 +95,16 @@ const StaffTable: FC<StaffTableProps> = ({ title, staffList, onUpdate }) => {
                 >
                   Редактировать
                 </Button>
-                <Button danger onClick={() => handleDelete(record.id)}>
-                  Удалить
-                </Button>
+                <Popconfirm
+                  title="Удаление данных работника"
+                  description="Вы действительно хотите удалять данные работника?"
+                  onConfirm={() => handleDeleteConfirm(record.id)}
+                  onCancel={handleDeleteCancel}
+                  okText="Да"
+                  cancelText="Нет"
+                >
+                  <Button danger>Удалить</Button>
+                </Popconfirm>
               </>
             ),
           },
