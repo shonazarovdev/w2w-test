@@ -1,5 +1,5 @@
 import { Layout, Menu } from "antd";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 
 import { StaffTable } from "./components";
 import { StaffMember, doctors, nurses } from "./data";
