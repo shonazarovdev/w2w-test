@@ -43,6 +43,11 @@ const StaffTable: FC<StaffTableProps> = ({ title, staffList, onUpdate }) => {
     });
   };
 
+  const handleClose = () => {
+    form.resetFields();
+    setEditingMember(null);
+  };
+
   return (
     <>
       <h2 style={{ marginBottom: "0.5rem" }}>{title}</h2>
@@ -89,6 +94,7 @@ const StaffTable: FC<StaffTableProps> = ({ title, staffList, onUpdate }) => {
         open={isModalOpen}
         onOk={handleSubmit}
         onCancel={() => setIsModalOpen(false)}
+        afterClose={handleClose}
       >
         <Form form={form} layout="vertical">
           <Form.Item
