@@ -45,17 +45,23 @@ const StaffTable: FC<StaffTableProps> = ({ title, staffList, onUpdate }) => {
 
   return (
     <>
-      <h2>{title}</h2>
-      <Button type="primary" onClick={() => setIsModalOpen(true)}>
+      <h2 style={{ marginBottom: "0.5rem" }}>{title}</h2>
+      <Button
+        type="primary"
+        onClick={() => setIsModalOpen(true)}
+        style={{ marginBottom: "1rem" }}
+      >
         Добавить
       </Button>
       <Table
         dataSource={staffList}
+        tableLayout={"fixed"}
         columns={[
-          { title: "ФИО", dataIndex: "fullName" },
-          { title: "Отделение", dataIndex: "department" },
+          { title: "ФИО", dataIndex: "fullName", width: "200px" },
+          { title: "Отделение", dataIndex: "department", width: "200px" },
           {
             title: "Действия",
+            width: "300px",
             render: (_, record) => (
               <>
                 <Button onClick={() => handleEdit(record)}>
@@ -68,6 +74,7 @@ const StaffTable: FC<StaffTableProps> = ({ title, staffList, onUpdate }) => {
             ),
           },
         ]}
+        scroll={{ x: 100 }}
         rowKey="id"
         pagination={false}
       />
