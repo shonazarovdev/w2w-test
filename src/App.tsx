@@ -12,10 +12,6 @@ const App: FC = () => {
   const [nurseList, setNurseList] = useState<StaffMember[]>(nurses);
   const isMobile = window.innerWidth < 769;
 
-  useEffect(() => {
-    console.log(isMobile);
-  }, []);
-
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Header style={{ paddingInline: isMobile ? 0 : "1rem" }}>
