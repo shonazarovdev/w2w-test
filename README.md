@@ -1,46 +1,74 @@
-# Getting Started with Create React App
+# 📋 Медицинский Список Сотрудников
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🏥 Описание проекта
 
-## Available Scripts
+Этот проект — управление списком врачей и медсестер с возможностью добавления, редактирования и удаления сотрудников.
 
-In the project directory, you can run:
+## 📌 Основные функции:
+- 📄 Просмотр списка врачей и медсестер.
+- ➕ Добавление нового сотрудника.
+- ✏️ Редактирование данных сотрудника.
+- ❌ Удаление сотрудников.
 
-### `npm start`
+## 🚀 Технологии
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Проект разработан с использованием следующих технологий:
+- ⚛️ **React** – UI-библиотека для работы с компонентами.
+- 🟦 **TypeScript** – строгая типизация для повышения надежности кода.
+- 🔄 **React Router** – навигация между страницами врачей и медсестер.
+- 🎨 **Ant Design** – готовые UI-компоненты для стилизации таблицы и форм.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 📂 Установка и запуск проекта
 
-### `npm test`
+### 1️⃣ Клонирование репозитория:
+```sh
+git clone https://github.com/shonazarovdev/w2w-test.git
+cd w2w-test
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 2️⃣ Установка зависимостей:
+```sh
+npm install
+```
 
-### `npm run build`
+### 3️⃣ Запуск проекта:
+```sh
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Проект запустится на http://localhost:3000.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📂 Структура проекта
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **w2w-test/**
+    - 📂 **src/**
+        - 📂 **components/**
+            - `StaffTable.tsx` – Таблица с врачами/медсестрами
+        - 📂 **data/**
+            - `data.ts` – Начальные данные (врачи и медсестры)
+        - `App.tsx` – Главный компонент с маршрутизацией
+        - `index.tsx` – Точка входа React
+    - `package.json` – Конфигурация npm-зависимостей
+    - `README.md` – Документация проекта
+    - `.prettierrc` - Конфигурация форматирования кода (Prettier)
 
-### `npm run eject`
+## 🛠 Функционал
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 🔹 Просмотр сотрудников
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+При открытии проекта вы увидите список врачей.
+Можно переключаться между “Врачи” и “Медсестры” с помощью меню.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 🔹 Добавление нового сотрудника
+	1.	Нажмите кнопку “Добавить врача” или “Добавить медсестру”.
+	2.	Введите ФИО и выберите отделение.
+	3.	Нажмите “OK”, и сотрудник появится в списке.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 🔹 Редактирование сотрудника
+	1.	Нажмите кнопку ✏️ Редактировать напротив нужного сотрудника.
+	2.	Измените ФИО или отделение.
+	3.	Сохраните изменения.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 🔹 Удаление сотрудника
+	1.	Нажмите ❌ Удалить напротив сотрудника.
+	2.	Подтверждение не требуется — сотрудник сразу удаляется.
