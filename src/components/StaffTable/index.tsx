@@ -69,6 +69,7 @@ const StaffTable: FC<StaffTableProps> = ({ title, staffList, onUpdate }) => {
           },
         ]}
         rowKey="id"
+        pagination={false}
       />
 
       <Modal
