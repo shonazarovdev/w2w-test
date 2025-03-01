@@ -1,5 +1,5 @@
 import { Layout, Menu } from "antd";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import { StaffTable } from "./components";
 import { StaffMember, doctors, nurses } from "./data";
@@ -10,10 +10,15 @@ const App: FC = () => {
   const [currentTab, setCurrentTab] = useState("doctors");
   const [doctorList, setDoctorList] = useState<StaffMember[]>(doctors);
   const [nurseList, setNurseList] = useState<StaffMember[]>(nurses);
+  const isMobile = window.innerWidth < 769;
+
+  useEffect(() => {
+    console.log(isMobile);
+  }, []);
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Header>
+      <Header style={{ paddingInline: isMobile ? 0 : "1rem" }}>
         <Menu
           theme="dark"
           mode="horizontal"
