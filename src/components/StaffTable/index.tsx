@@ -4,7 +4,6 @@ import {
   Input,
   Modal,
   Popconfirm,
-  PopconfirmProps,
   Select,
   Switch,
   Table,
@@ -47,6 +46,7 @@ const StaffTable: FC<StaffTableProps> = ({ title, staffList, onUpdate }) => {
         );
       } else {
         onUpdate([...staffList, { ...values, id: Date.now() }]);
+        message.success('Данные сохранены успешно')
       }
       setIsModalOpen(false);
       setEditingMember(null);
